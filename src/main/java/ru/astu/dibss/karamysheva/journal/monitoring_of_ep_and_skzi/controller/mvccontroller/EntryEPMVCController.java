@@ -59,6 +59,7 @@ public class EntryEPMVCController {
     @GetMapping("/entryep/view/{id}")
     public String viewEntryEP(@PathVariable Integer id, Model model){
         EntryEPDTO entryEPDTO = entryEPService.findById(id);
+        System.out.println("Certificates: " + entryEPDTO.getSertificates());
         model.addAttribute("entryep", entryEPDTO);
         return "entry-ep_view";
     }

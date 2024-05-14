@@ -88,8 +88,8 @@
           <th>Имя</th>
           <th>Серийный номер</th>
         </tr>
-        <tr th:each="certificate : ${certificates}">
-          <td><input type="checkbox" name="certificateIds" th:value="${certificate.id}" th:checked="${entryep.certificates.contains(certificate)}"/></td>
+        <tr th:each="certificate : ${sertificates}">
+          <td><input type="checkbox" name="sertificateIds" th:value="${certificate.id}" th:checked="${entryep.sertificates.contains(certificate)}"/></td>
           <td th:text="${certificate.name}"></td>
           <td th:text="${certificate.serialNumber}"></td>
         </tr>

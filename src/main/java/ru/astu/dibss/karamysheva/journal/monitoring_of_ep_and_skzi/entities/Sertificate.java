@@ -20,7 +20,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "Sertificate")
+@Table(name = "sertificate")
 @Data
 @RequiredArgsConstructor
 public class Sertificate {
