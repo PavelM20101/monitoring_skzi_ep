@@ -2,35 +2,33 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Add computer</title>
-  <!-- Include Bootstrap CSS -->
+  <title>Добавить компьютер</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container">
-  <h2>Add Computer</h2>
+  <h2>Добавить компьютер</h2>
   <form action="/mvc/computer/add" method="post">
     <div class="form-group">
-      <label for="cabinet">Cabinet:</label>
+      <label for="cabinet">Кабинет:</label>
       <input type="text" id="cabinet" name="cabinet" class="form-control">
     </div>
     <div class="form-group">
-      <label for="department">Department:</label>
+      <label for="department">Отдел:</label>
       <input type="text" id="department" name="department" class="form-control">
     </div>
     <div class="form-group">
-      <label for="learningCampus">Learning Campus:</label>
+      <label for="learningCampus">Учебный корпус:</label>
       <input type="text" id="learningCampus" name="learningCampus" class="form-control">
     </div>
     <div class="form-group">
-      <label for="marking">Marking:</label>
+      <label for="marking">Маркировка:</label>
       <input type="text" id="marking" name="marking" class="form-control">
     </div>
-    <button type="submit" class="btn btn-primary">Add</button>
+    <button type="submit" class="btn btn-primary">Добавить</button>
   </form>
 </div>
 
-<!-- Include Bootstrap JS -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -1,33 +1,30 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Carrier Page</title>
-    <!-- Подключение Bootstrap CSS -->
+    <title>Список носителей</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container">
-    <h2>Carrier List</h2>
-    <a href="/home" class="btn btn-primary mb-3">Back to Home</a>
-    <a href="/mvc/carrier/add" class="btn btn-success mb-3">Add Carrier</a>
+    <h2>Список носителей</h2>
+    <a href="/home" class="btn btn-primary mb-3">Вернуться на главную</a>
+    <a href="/mvc/carrier/add" class="btn btn-success mb-3">Добавить носителя</a>
 
-    <!-- Форма для поиска -->
     <form action="/mvc/carriers/search" method="get" class="mb-3">
         <div class="form-row align-items-center">
             <div class="col-auto">
-                <label for="searchParameter">Search by:</label>
+                <label for="searchParameter">Поиск по:</label>
                 <select id="searchParameter" name="parameter" class="form-control">
-                    <option value="type">Type</option>
-                    <option value="serialNumber">Serial Number</option>
-                    <option value="markirovka">Markirovka</option>
-                    <!-- Добавьте другие параметры для поиска по необходимости -->
+                    <option value="type">Тип</option>
+                    <option value="serialNumber">Серийный номер</option>
+                    <option value="markirovka">Маркировка</option>
                 </select>
             </div>
             <div class="col-auto">
                 <input type="text" id="searchValue" name="value" class="form-control" placeholder="Search...">
             </div>
             <div class="col-auto">
-                <button type="submit" class="btn btn-primary">Search</button>
+                <button type="submit" class="btn btn-primary">Поиск</button>
             </div>
         </div>
     </form>
@@ -36,10 +33,10 @@
         <thead class="thead-dark">
         <tr>
             <th>ID</th>
-            <th>Type</th>
-            <th>Serial Number</th>
-            <th>Markirovka</th>
-            <th>Actions</th>
+            <th>Тип</th>
+            <th>Серийный номер</th>
+            <th>Маркировка</th>
+            <th>Действия</th>
         </tr>
         </thead>
         <tbody>
@@ -49,16 +46,15 @@
             <td th:text="${carrier.serialNumber}"></td>
             <td th:text="${carrier.markirovka}"></td>
             <td>
-                <a th:href="@{/mvc/view/{id}(id=${carrier.id})}" class="btn btn-info">View</a>
-                <a th:href="@{/mvc/carrier/edit/{id}(id=${carrier.id})}" class="btn btn-warning">Edit</a>
-                <a th:href="@{/mvc/carrier/delete/{id}(id=${carrier.id})}" class="btn btn-danger">Delete</a>
+                <a th:href="@{/mvc/view/{id}(id=${carrier.id})}" class="btn btn-info">Подбно</a>
+                <a th:href="@{/mvc/carrier/edit/{id}(id=${carrier.id})}" class="btn btn-warning">Изменить</a>
+                <a th:href="@{/mvc/carrier/delete/{id}(id=${carrier.id})}" class="btn btn-danger">Удалить</a>
             </td>
         </tr>
         </tbody>
     </table>
 </div>
 
-<!-- Подключение Bootstrap JS (необходимо для работы интерактивных элементов) -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

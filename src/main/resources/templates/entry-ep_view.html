@@ -2,62 +2,61 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>View Entry EP</title>
-    <!-- Bootstrap CSS -->
+    <title>Подробно</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .table-container {
             display: inline-block;
-            margin-right: 20px; /* Добавьте необходимый отступ между таблицами */
+            margin-right: 20px;
         }
     </style>
 </head>
 <body>
 <div class="container">
-    <h2>Entry EP Details</h2>
-    <a href="/mvc/entryeps" class="btn btn-primary">Back to Entry EP List</a>
+    <h2>Подробно</h2>
+    <a href="/mvc/entryeps" class="btn btn-primary">Назад</a>
     <table class="table mt-3">
         <tr>
             <th>ID</th>
             <td th:text="${entryep.id}"></td>
         </tr>
         <tr>
-            <th>Type</th>
+            <th>Тип</th>
             <td th:text="${entryep.type}"></td>
         </tr>
         <tr>
-            <th>Date of Issue EP</th>
+            <th>Дата выдачи ЭП в УЦ</th>
             <td th:text="${entryep.dateOfIssueEp}"></td>
         </tr>
         <tr>
-            <th>Date of Receiving</th>
+            <th>Дата получения ЭП сотрудником</th>
             <td th:text="${entryep.dateOfReceiving}"></td>
         </tr>
         <tr>
-            <th>Date of Installation ECP</th>
+            <th>Дата установки ЭЦП</th>
             <td th:text="${entryep.dateOfInstallationEcp}"></td>
         </tr>
         <tr>
-            <th>Name of Employee IB</th>
+            <th>Имя сотрудника ИБ</th>
             <td th:text="${entryep.nameOfEmployeeIb}"></td>
         </tr>
         <tr>
-            <th>Learning Campus</th>
+            <th>Учебный корпус</th>
             <td th:text="${entryep.learningCampus}"></td>
         </tr>
         <tr>
-            <th>Cabinet</th>
+            <th>Кабинет</th>
             <td th:text="${entryep.cabinet}"></td>
         </tr>
     </table>
 
     <div class="table-container">
-        <h2>Employees</h2>
+        <h2>Сотрудники</h2>
         <table class="table">
             <thead>
             <tr>
                 <th>ID</th>
-                <th>Name</th>
+                <th>Имя</th>
             </tr>
             </thead>
             <tbody>
@@ -70,13 +69,13 @@
     </div>
 
     <div class="table-container">
-        <h2>Certificates</h2>
+        <h2>Сертификаты</h2>
         <table class="table">
             <thead>
             <tr>
                 <th>ID</th>
-                <th>Name</th>
-                <th>Serial Number</th>
+                <th>Имя</th>
+                <th>Серийный номер</th>
             </tr>
             </thead>
             <tbody>
@@ -90,12 +89,12 @@
     </div>
 
     <div class="table-container">
-        <h2>Computers</h2>
+        <h2>Компьютеры</h2>
         <table class="table">
             <thead>
             <tr>
                 <th>ID</th>
-                <th>Marking</th>
+                <th>Маркировка</th>
             </tr>
             </thead>
             <tbody>
@@ -108,12 +107,12 @@
     </div>
 
     <div class="table-container">
-        <h2>Carriers</h2>
+        <h2>Носители</h2>
         <table class="table">
             <thead>
             <tr>
                 <th>ID</th>
-                <th>Serial Number</th>
+                <th>Серийный номер</th>
             </tr>
             </thead>
             <tbody>
@@ -125,7 +124,6 @@
         </table>
     </div>
 </div>
-<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

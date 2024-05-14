@@ -2,24 +2,23 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Entry EP</title>
-    <!-- Bootstrap CSS -->
+    <title>Запись ЭП</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <div class="container">
-    <h2>EP List</h2>
-    <a href="/home" class="btn btn-primary">Back to Home</a>
-    <a href="/mvc/entryep/add" class="btn btn-success">Add Entry EP</a>
+    <h2>Список записей ЭП</h2>
+    <a href="/home" class="btn btn-primary">Назад</a>
+    <a href="/mvc/entryep/add" class="btn btn-success">Добавить запись ЭП</a>
     <form action="/mvc/entryeps/search" method="get" class="mt-3">
         <div class="row">
             <div class="col-auto">
-                <label for="searchParameter" class="form-label">Search by:</label>
+                <label for="searchParameter" class="form-label">Поиск по:</label>
                 <select id="searchParameter" name="parameter" class="form-select">
-                    <option value="cabinet">Cabinet</option>
-                    <option value="campus">Campus</option>
-                    <option value="name">Name</option>
-                    <option value="type">Type</option>
+                    <option value="cabinet">Кабинет</option>
+                    <option value="campus">Учебный корпус</option>
+                    <option value="name">Имя</option>
+                    <option value="type">Тип</option>
                 </select>
             </div>
             <div class="col-auto">
@@ -35,14 +34,14 @@
         <thead>
         <tr>
             <th>ID</th>
-            <th>Type</th>
-            <th>Date of Issue EP</th>
-            <th>Date of Receiving EP</th>
-            <th>Date of Installation ECP</th>
-            <th>Name of employee IB</th>
-            <th>Learning Campus</th>
-            <th>Cabinet</th>
-            <th>Actions</th>
+            <th>Тип</th>
+            <th>Дата выдачи ЭП в УЦ</th>
+            <th>Дата получения ЭП сотрудником</th>
+            <th>Дата установки ЭЦП</th>
+            <th>Имя сотрудника ИБ</th>
+            <th>Учебный корпус</th>
+            <th>Кабинет</th>
+            <th>Действия</th>
         </tr>
         </thead>
         <tbody>
@@ -56,15 +55,14 @@
             <td th:text="${entryep.learningCampus}"></td>
             <td th:text="${entryep.cabinet}"></td>
             <td>
-                <a th:href="@{/mvc/entryep/view/{id}(id=${entryep.id})}" class="btn btn-info">View</a>
-                <a th:href="@{/mvc/entryep/edit/{id}(id=${entryep.id})}" class="btn btn-warning">Edit</a>
-                <a th:href="@{/mvc/entryep/delete/{id}(id=${entryep.id})}" class="btn btn-danger">Delete</a>
+                <a th:href="@{/mvc/entryep/view/{id}(id=${entryep.id})}" class="btn btn-info">Подробно</a>
+                <a th:href="@{/mvc/entryep/edit/{id}(id=${entryep.id})}" class="btn btn-warning">Изменить</a>
+                <a th:href="@{/mvc/entryep/delete/{id}(id=${entryep.id})}" class="btn btn-danger">Удалить</a>
             </td>
         </tr>
         </tbody>
     </table>
 </div>
-<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
