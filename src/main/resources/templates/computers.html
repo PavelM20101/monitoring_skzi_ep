@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Computers</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h2>Computer List</h2>
+    <a href="/home" class="btn btn-primary">Back to Home</a>
+    <a href="/mvc/computer/add" class="btn btn-success">Add Computer</a>
+
+    <form action="/mvc/computers/search" method="get" class="mt-3">
+        <div class="form-row align-items-center">
+            <div class="col-auto">
+                <label for="searchParameter" class="sr-only">Search By:</label>
+                <select id="searchParameter" name="parameter" class="form-control">
+                    <option value="cabinet">Cabinet</option>
+                    <option value="department">Department</option>
+                    <option value="campus">Learning Campus</option>
+                    <option value="marking">Marking</option>
+                </select>
+            </div>
+            <div class="col-auto">
+                <input type="text" id="searchValue" name="value" class="form-control" placeholder="Search Value">
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </div>
+    </form>
+
+    <table class="table mt-3">
+        <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Cabinet</th>
+            <th>Department</th>
+            <th>Learning Campus</th>
+            <th>Marking</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="computer : ${computers}">
+            <td th:text="${computer.id}"></td>
+            <td th:text="${computer.cabinet}"></td>
+            <td th:text="${computer.department}"></td>
+            <td th:text="${computer.learningCampus}"></td>
+            <td th:text="${computer.marking}"></td>
+            <td>
+                <a th:href="@{/mvc/computer/view/{id}(id=${computer.id})}" class="btn btn-info">View</a>
+                <a th:href="@{/mvc/computer/edit/{id}(id=${computer.id})}" class="btn btn-warning">Edit</a>
+                <a th:href="@{/mvc/computer/delete/{id}(id=${computer.id})}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Include Bootstrap JS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Computers</title>-->
+<!--    &lt;!&ndash; Подключение Bootstrap CSS &ndash;&gt;-->
+<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="container">-->
+<!--    <h2>Computer List</h2>-->
+<!--    <a href="/home" class="btn btn-primary">Back to Home</a>-->
+<!--    <a href="/mvc/computer/add" class="btn btn-success">Add Computer</a>-->
+
+<!--    <form action="/mvc/computers/search" method="get" class="my-3">-->
+<!--        <div class="form-row align-items-center">-->
+<!--            <div class="col-auto">-->
+<!--                <label for="searchParameter" class="sr-only">Search By:</label>-->
+<!--                <select id="searchParameter" name="parameter" class="form-control">-->
+<!--                    <option value="cabinet">Cabinet</option>-->
+<!--                    <option value="department">Department</option>-->
+<!--                    <option value="campus">Learning Campus</option>-->
+<!--                    <option value="marking">Marking</option>-->
+<!--                </select>-->
+<!--            </div>-->
+<!--            <div class="col-auto">-->
+<!--                <input type="text" id="searchValue" name="value" class="form-control" placeholder="Search Value">-->
+<!--            </div>-->
+<!--            <div class="col-auto">-->
+<!--                <button type="submit" class="btn btn-primary">Search</button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </form>-->
+
+<!--    <table class="table">-->
+<!--        <thead class="thead-dark">-->
+<!--        <tr>-->
+<!--            <th>ID</th>-->
+<!--            <th>Cabinet</th>-->
+<!--            <th>Department</th>-->
+<!--            <th>Learning Campus</th>-->
+<!--            <th>Marking</th>-->
+<!--            <th>Actions</th>-->
+<!--        </tr>-->
+<!--        </thead>-->
+<!--        <tbody>-->
+<!--        <tr th:each="computer : ${computers}">-->
+<!--            <td th:text="${computer.id}"></td>-->
+<!--            <td th:text="${computer.cabinet}"></td>-->
+<!--            <td th:text="${computer.department}"></td>-->
+<!--            <td th:text="${computer.learningCampus}"></td>-->
+<!--            <td th:text="${computer.marking}"></td>-->
+<!--            <td>-->
+<!--                <a th:href="@{/mvc/computer/view/{id}(id=${computer.id})}" class="btn btn-info">View</a>-->
+<!--                <a th:href="@{/mvc/computer/edit/{id}(id=${computer.id})}" class="btn btn-warning">Edit</a>-->
+<!--                <a th:href="@{/mvc/computer/delete/{id}(id=${computer.id})}" class="btn btn-danger">Delete</a>-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--        </tbody>-->
+<!--    </table>-->
+<!--</div>-->
+
+<!--&lt;!&ndash; Подключение Bootstrap JS (необходимо для работы интерактивных элементов) &ndash;&gt;-->
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>-->
+<!--</body>-->
+<!--</html>-->
+

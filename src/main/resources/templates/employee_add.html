@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Employee</title>
+  <!-- Include Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+  <h2>Add Employee</h2>
+  <form action="/mvc/employee/add" method="post">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="cabinet">Cabinet:</label>
+      <input type="number" id="cabinet" name="cabinet" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="department">Department:</label>
+      <input type="text" id="department" name="department" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="learningCampus">Learning Campus:</label>
+      <input type="text" id="learningCampus" name="learningCampus" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="post">Post:</label>
+      <input type="text" id="post" name="post" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Add</button>
+  </form>
+</div>
+
+<!-- Include Bootstrap JS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

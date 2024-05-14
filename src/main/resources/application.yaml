@@ -1,0 +1,27 @@
+
+spring:
+  application:
+    name: monitoring_of_ep_and_skzi
+#  mvc:
+#    pathmatch:
+#      matching-strategy: ant_path_matcher
+  datasource:
+    url: jdbc:postgresql://localhost:5432/monitoring
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+#  liquibase:
+#    default-schema: monitoring_of_ep_and_skzi
+#    change-log: db/changelog/db.changelog-master.yaml
+#    enabled: ${LIQUIBASE_ENABLED:true}
+#    drop-first: ${LIQUIBASE_DROP_FIRST:false}
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        show_sql: true
+
+    hibernate:
+      ddl-auto: update
+server:
+  port: 8180

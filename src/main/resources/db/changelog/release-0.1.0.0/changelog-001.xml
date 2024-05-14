@@ -1,0 +1,120 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<databaseChangeLog-->
+<!--        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"-->
+<!--        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">-->
+
+<!--    <changeSet id="create_table_carrier" author="kamila.k">-->
+<!--        <createTable tableName="carrier">-->
+<!--            <column name="id" type="INT">-->
+<!--                <constraints primaryKey="true" nullable="false"/>-->
+<!--            </column>-->
+<!--            <column name="type" type="VARCHAR(255)"/>-->
+<!--            <column name="serial_number" type="VARCHAR(255)"/>-->
+<!--            <column name="markirovka" type="VARCHAR(255)"/>-->
+<!--            <column name="entry_ep_id" type="INT">-->
+<!--                <constraints nullable="true"/>-->
+<!--            </column>-->
+<!--            <column name="entry_skzi_id" type="INT">-->
+<!--                <constraints nullable="true"/>-->
+<!--            </column>-->
+<!--        </createTable>-->
+<!--    </changeSet>-->
+
+<!--    <changeSet id="create_table_computer" author="kamila.k">-->
+<!--        <createTable tableName="computer">-->
+<!--            <column name="id" type="INT">-->
+<!--                <constraints primaryKey="true" nullable="false"/>-->
+<!--            </column>-->
+<!--            <column name="marking" type="VARCHAR(255)"/>-->
+<!--            <column name="learning_campus" type="VARCHAR(255)"/>-->
+<!--            <column name="department" type="VARCHAR(255)"/>-->
+<!--            <column name="cabinet" type="VARCHAR(255)"/>-->
+<!--            <column name="entry_ep_id" type="INT">-->
+<!--                <constraints nullable="true"/>-->
+<!--            </column>-->
+<!--        </createTable>-->
+<!--    </changeSet>-->
+
+<!--    <changeSet id="create_table_employee" author="kamila.k">-->
+<!--        <createTable tableName="employee">-->
+<!--            <column name="id" type="INT">-->
+<!--                <constraints primaryKey="true" nullable="false"/>-->
+<!--            </column>-->
+<!--            <column name="name" type="VARCHAR(255)"/>-->
+<!--            <column name="post" type="VARCHAR(255)"/>-->
+<!--            <column name="learning_campus" type="VARCHAR(255)"/>-->
+<!--            <column name="department" type="VARCHAR(255)"/>-->
+<!--            <column name="cabinet" type="INT"/>-->
+<!--            <column name="carrier_id" type="INT">-->
+<!--                <constraints nullable="true"/>-->
+<!--            </column>-->
+<!--        </createTable>-->
+<!--    </changeSet>-->
+
+<!--    <changeSet id="create_table_entry_ep" author="kamila.k">-->
+<!--        <createTable tableName="entry_ep">-->
+<!--            <column name="id" type="INT">-->
+<!--                <constraints primaryKey="true" nullable="false"/>-->
+<!--            </column>-->
+<!--            <column name="type" type="VARCHAR(255)"/>-->
+<!--            <column name="date_of_issue_ep" type="TIMESTAMP"/>-->
+<!--            <column name="date_of_receiving" type="TIMESTAMP"/>-->
+<!--            <column name="date_of_installation_ecp" type="TIMESTAMP"/>-->
+<!--            <column name="name_of_employee_ib" type="VARCHAR(255)"/>-->
+<!--            <column name="learning_campus" type="VARCHAR(255)"/>-->
+<!--            <column name="cabinet" type="INT"/>-->
+<!--        </createTable>-->
+<!--    </changeSet>-->
+
+<!--    <changeSet id="create_table_entry_skzi" author="kamila.k">-->
+<!--        <createTable tableName="entry_skzi">-->
+<!--            <column name="id" type="INT">-->
+<!--                <constraints primaryKey="true" nullable="false"/>-->
+<!--            </column>-->
+<!--            <column name="type" type="VARCHAR(255)"/>-->
+<!--            <column name="installation_date_skzi" type="TIMESTAMP"/>-->
+<!--            <column name="name_ib" type="VARCHAR(255)"/>-->
+<!--        </createTable>-->
+<!--    </changeSet>-->
+
+<!--    <changeSet id="create_table_sertificate" author="kamila.k">-->
+<!--        <createTable tableName="sertificate">-->
+<!--            <column name="id" type="INT">-->
+<!--                <constraints primaryKey="true" nullable="false"/>-->
+<!--            </column>-->
+<!--            <column name="name" type="VARCHAR(255)"/>-->
+<!--            <column name="serial_number" type="VARCHAR(255)"/>-->
+<!--            <column name="verification_center" type="VARCHAR(255)"/>-->
+<!--            <column name="date_of_issue" type="TIMESTAMP"/>-->
+<!--            <column name="date_of_expiry" type="TIMESTAMP"/>-->
+<!--            <column name="entry_ep_id" type="INT">-->
+<!--                <constraints nullable="true"/>-->
+<!--            </column>-->
+<!--        </createTable>-->
+<!--    </changeSet>-->
+
+<!--    <changeSet id="add_foreign_keys" author="kamila.k">-->
+<!--        <addForeignKeyConstraint baseTableName="carrier" baseColumnNames="entry_ep_id"-->
+<!--                                 constraintName="fk_carrier_entry_ep"-->
+<!--                                 referencedTableName="entry_ep" referencedColumnNames="id"-->
+<!--                                 onDelete="SET NULL" />-->
+<!--        <addForeignKeyConstraint baseTableName="carrier" baseColumnNames="entry_skzi_id"-->
+<!--                                 constraintName="fk_carrier_entry_skzi"-->
+<!--                                 referencedTableName="entry_skzi" referencedColumnNames="id"-->
+<!--                                 onDelete="SET NULL" />-->
+<!--        <addForeignKeyConstraint baseTableName="computer" baseColumnNames="entry_ep_id"-->
+<!--                                 constraintName="fk_computer_entry_ep"-->
+<!--                                 referencedTableName="entry_ep" referencedColumnNames="id"-->
+<!--                                 onDelete="SET NULL" />-->
+<!--        <addForeignKeyConstraint baseTableName="employee" baseColumnNames="carrier_id"-->
+<!--                                 constraintName="fk_employee_carrier"-->
+<!--                                 referencedTableName="carrier" referencedColumnNames="id"-->
+<!--                                 onDelete="SET NULL" />-->
+<!--        <addForeignKeyConstraint baseTableName="sertificate" baseColumnNames="entry_ep_id"-->
+<!--                                 constraintName="fk_sertificate_entry_ep"-->
+<!--                                 referencedTableName="entry_ep" referencedColumnNames="id"-->
+<!--                                 onDelete="SET NULL" />-->
+<!--    </changeSet>-->
+
+<!--</databaseChangeLog>-->

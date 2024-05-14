@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employees</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h2>Employee List</h2>
+    <a href="/home" class="btn btn-primary">Back to Home</a>
+    <a href="/mvc/employee/add" class="btn btn-success">Add Employee</a>
+
+    <form action="/mvc/employees/search" method="get" class="my-3">
+        <div class="form-row align-items-center">
+            <div class="col-auto">
+                <label for="searchParameter" class="sr-only">Search By:</label>
+                <select id="searchParameter" name="parameter" class="form-control">
+                    <option value="department">Department</option>
+                    <option value="campus">Campus</option>
+                    <option value="post">Post</option>
+                    <option value="name">Name</option>
+                </select>
+            </div>
+            <div class="col-auto">
+                <input type="text" id="searchValue" name="value" class="form-control" placeholder="Search Value">
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </div>
+    </form>
+
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Cabinet</th>
+            <th>Department</th>
+            <th>Learning Campus</th>
+            <th>Name</th>
+            <th>Post</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="employee : ${employees}">
+            <td th:text="${employee.id}"></td>
+            <td th:text="${employee.cabinet}"></td>
+            <td th:text="${employee.department}"></td>
+            <td th:text="${employee.learningCampus}"></td>
+            <td th:text="${employee.name}"></td>
+            <td th:text="${employee.post}"></td>
+            <td>
+                <a th:href="@{/mvc/employee/view/{id}(id=${employee.id})}" class="btn btn-info">View</a>
+                <a th:href="@{/mvc/employee/edit/{id}(id=${employee.id})}" class="btn btn-warning">Edit</a>
+                <a th:href="@{/mvc/employee/delete/{id}(id=${employee.id})}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Include Bootstrap JS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

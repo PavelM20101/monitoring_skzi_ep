@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Employee</title>
+  <!-- Include Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+  <h2>Edit Employee</h2>
+  <form action="/mvc/employee/edit" method="post">
+    <input type="hidden" name="id" th:value="${employee.id}"/>
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" class="form-control" th:value="${employee.name}">
+    </div>
+    <div class="form-group">
+      <label for="cabinet">Cabinet:</label>
+      <input type="number" id="cabinet" name="cabinet" class="form-control" th:value="${employee.cabinet}">
+    </div>
+    <div class="form-group">
+      <label for="department">Department:</label>
+      <input type="text" id="department" name="department" class="form-control" th:value="${employee.department}">
+    </div>
+    <div class="form-group">
+      <label for="learningCampus">Learning Campus:</label>
+      <input type="text" id="learningCampus" name="learningCampus" class="form-control" th:value="${employee.learningCampus}">
+    </div>
+    <div class="form-group">
+      <label for="post">Post:</label>
+      <input type="text" id="post" name="post" class="form-control" th:value="${employee.post}">
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
+</div>
+
+<!-- Include Bootstrap JS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

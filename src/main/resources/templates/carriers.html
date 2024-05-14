@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Carrier Page</title>
+    <!-- Подключение Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h2>Carrier List</h2>
+    <a href="/home" class="btn btn-primary mb-3">Back to Home</a>
+    <a href="/mvc/carrier/add" class="btn btn-success mb-3">Add Carrier</a>
+
+    <!-- Форма для поиска -->
+    <form action="/mvc/carriers/search" method="get" class="mb-3">
+        <div class="form-row align-items-center">
+            <div class="col-auto">
+                <label for="searchParameter">Search by:</label>
+                <select id="searchParameter" name="parameter" class="form-control">
+                    <option value="type">Type</option>
+                    <option value="serialNumber">Serial Number</option>
+                    <option value="markirovka">Markirovka</option>
+                    <!-- Добавьте другие параметры для поиска по необходимости -->
+                </select>
+            </div>
+            <div class="col-auto">
+                <input type="text" id="searchValue" name="value" class="form-control" placeholder="Search...">
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </div>
+    </form>
+
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Type</th>
+            <th>Serial Number</th>
+            <th>Markirovka</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="carrier : ${carriers}">
+            <td th:text="${carrier.id}"></td>
+            <td th:text="${carrier.type}"></td>
+            <td th:text="${carrier.serialNumber}"></td>
+            <td th:text="${carrier.markirovka}"></td>
+            <td>
+                <a th:href="@{/mvc/view/{id}(id=${carrier.id})}" class="btn btn-info">View</a>
+                <a th:href="@{/mvc/carrier/edit/{id}(id=${carrier.id})}" class="btn btn-warning">Edit</a>
+                <a th:href="@{/mvc/carrier/delete/{id}(id=${carrier.id})}" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Подключение Bootstrap JS (необходимо для работы интерактивных элементов) -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

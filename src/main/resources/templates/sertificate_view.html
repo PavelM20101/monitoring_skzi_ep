@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>View sertificate</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Прямое указание цвета текста -->
+  <style>
+    .expiring-soon-text {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h2 class="mt-4">Sertificate details</h2>
+
+  <!-- Отображение предупреждения -->
+  <div th:if="${sertificate.isExpiringSoon()}" class="alert alert-warning" role="alert">
+    <p class="expiring-soon-text">This certificate is expiring soon!</p>
+  </div>
+
+  <a href="/mvc/sertificates" class="btn btn-primary mb-3">Back to Sertificates</a>
+  <table class="table">
+    <tr>
+      <th>ID</th>
+      <td th:text="${sertificate.id}"></td>
+    </tr>
+    <tr>
+      <th>Date Of Expiry</th>
+      <td th:text="${sertificate.dateOfExpiry}"></td>
+    </tr>
+    <tr>
+      <th>Date Of Issue</th>
+      <td th:text="${sertificate.dateOfIssue}"></td>
+    </tr>
+    <tr>
+      <th>Name</th>
+      <td th:text="${sertificate.name}"></td>
+    </tr>
+    <tr>
+      <th>Serial number</th>
+      <td th:text="${sertificate.serialNumber}"></td>
+    </tr>
+    <tr>
+      <th>Verification Center</th>
+      <td th:text="${sertificate.verificationCenter}"></td>
+    </tr>
+  </table>
+</div>
+<!-- Bootstrap JS (optional) -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

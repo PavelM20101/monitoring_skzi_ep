@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Add Carrier</title>
+  <!-- Подключение Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+  <h2>Add Carrier</h2>
+  <form action="/mvc/carrier/add" method="post">
+    <div class="form-group">
+      <label for="type">Type:</label>
+      <input type="text" id="type" name="type" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="serialNumber">Serial Number:</label>
+      <input type="text" id="serialNumber" name="serialNumber" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="markirovka">Markirovka:</label>
+      <input type="text" id="markirovka" name="markirovka" class="form-control">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add</button>
+  </form>
+</div>
+
+<!-- Подключение Bootstrap JS (необходимо для работы интерактивных элементов) -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Add sertificate</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+  <h2>Add Sertificate</h2>
+  <form action="/mvc/sertificate/add" method="post">
+    <div class="form-group">
+      <label for="dateOfExpiry">Date Of Expiry:</label>
+      <input type="datetime-local" class="form-control" id="dateOfExpiry" name="dateOfExpiry"/>
+    </div>
+    <div class="form-group">
+      <label for="dateOfIssue">Date Of Issue:</label>
+      <input type="datetime-local" class="form-control" id="dateOfIssue" name="dateOfIssue"/>
+    </div>
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" id="name" name="name"/>
+    </div>
+    <div class="form-group">
+      <label for="serialNumber">Serial Number:</label>
+      <input type="text" class="form-control" id="serialNumber" name="serialNumber"/>
+    </div>
+    <div class="form-group">
+      <label for="verificationCenter">Verification Center:</label>
+      <input type="text" class="form-control" id="verificationCenter" name="verificationCenter"/>
+    </div>
+    <button type="submit" class="btn btn-primary">Add</button>
+  </form>
+</div>
+<!-- Bootstrap JS (optional) -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Main Page</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container text-center mt-5">
+    <div class="container text-left mt-3">
+        <a th:href="@{/logout}" class="btn btn-danger">Logout</a>
+    </div>
+    <h2>Main Page</h2>
+    <!-- Check if there are expiring soon certificates and display warning if there are -->
+    <div th:if="${expiringSoonSertificates.size() > 0}" style="color: red; font-weight: bold;">
+        Warning: Some certificates are expiring soon!
+    </div>
+    <div class="btn-group-vertical mt-3" role="group">
+        <button type="button" class="btn btn-primary mb-3" onclick="window.location.href='/mvc/carriers'">Carriers</button>
+        <button type="button" class="btn btn-primary mb-3" onclick="window.location.href='/mvc/computers'">Computers</button>
+        <button type="button" class="btn btn-primary mb-3" onclick="window.location.href='/mvc/employees'">Employees</button>
+        <button type="button" class="btn btn-primary mb-3" onclick="window.location.href='/mvc/entryeps'">Entry EPs</button>
+        <button type="button" class="btn btn-primary mb-3" onclick="window.location.href='/mvc/entryskzis'">Entry SKZIs</button>
+        <button type="button" class="btn btn-primary mb-3" onclick="window.location.href='/mvc/sertificates'">Certificates</button>
+    </div>
+</div>
+
+<!-- Include Bootstrap JS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

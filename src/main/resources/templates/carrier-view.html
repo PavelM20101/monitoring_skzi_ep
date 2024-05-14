@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>View Carrier</title>
+  <!-- Подключение Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+  <h2>Carrier Details</h2>
+  <a href="/mvc/carriers" class="btn btn-primary mb-3">Back to Carriers</a>
+  <table class="table table-striped">
+    <tr>
+      <th>ID</th>
+      <td th:text="${carrier.id}"></td>
+    </tr>
+    <tr>
+      <th>Type</th>
+      <td th:text="${carrier.type}"></td>
+    </tr>
+    <tr>
+      <th>Serial Number</th>
+      <td th:text="${carrier.serialNumber}"></td>
+    </tr>
+    <tr>
+      <th>Markirovka</th>
+      <td th:text="${carrier.markirovka}"></td>
+    </tr>
+    <!-- Добавьте другие поля сущности Carrier по аналогии -->
+  </table>
+
+  <!-- Таблица для отображения сотрудников перевозчика -->
+  <h2>Employees</h2>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <!-- Добавьте другие поля для сотрудников по необходимости -->
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Итерация по списку сотрудников и вывод их данных -->
+    <tr th:each="employee : ${carrier.employees}">
+      <td th:text="${employee.id}"></td>
+      <td th:text="${employee.name}"></td>
+      <!-- Добавьте другие поля для сотрудников по необходимости -->
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Подключение Bootstrap JS (необходимо для работы интерактивных элементов) -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

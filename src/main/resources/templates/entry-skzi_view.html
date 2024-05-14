@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>View Entry SKZI</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+  <h2>Entry SKZI Details</h2>
+  <a href="/mvc/entryskzis" class="btn btn-primary">Back to Entry SKZI</a>
+  <table class="table mt-3">
+    <tr>
+      <th>ID</th>
+      <td th:text="${entryskzi.id}"></td>
+    </tr>
+    <tr>
+      <th>Type</th>
+      <td th:text="${entryskzi.type}"></td>
+    </tr>
+    <tr>
+      <th>Installation Date SKZI</th>
+      <td th:text="${entryskzi.installationDateSkzi}"></td>
+    </tr>
+    <tr>
+      <th>Name IB</th>
+      <td th:text="${entryskzi.nameIb}"></td>
+    </tr>
+  </table>
+
+  <h2>Carriers</h2>
+  <table class="table mt-3">
+    <thead>
+    <tr>
+      <th>Serial Number</th>
+      <th>Markirovka</th>
+      <!-- Добавьте другие поля для сотрудников по необходимости -->
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Итерация по списку сотрудников и вывод их данных -->
+    <tr th:each="carrier : ${entryskzi.carriers}">
+      <td th:text="${carrier.id}"></td>
+      <td th:text="${carrier.markirovka}"></td>
+      <!-- Добавьте другие поля для сотрудников по необходимости -->
+    </tr>
+    </tbody>
+  </table>
+</div>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

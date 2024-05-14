@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Sertificate</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h2 class="mt-4">Edit Sertificate</h2>
+  <form action="/mvc/sertificate/edit" method="post">
+    <input type="hidden" name="id" th:value="${sertificate.id}"/>
+    <div class="form-group">
+      <label for="dateOfExpiry">Date of Expiry</label>
+      <input type="date" class="form-control" id="dateOfExpiry" name="dateOfExpiry" th:value="${sertificate.dateOfExpiry}">
+    </div>
+    <div class="form-group">
+      <label for="dateOfIssue">Date of Issue</label>
+      <input type="date" class="form-control" id="dateOfIssue" name="dateOfIssue" th:value="${sertificate.dateOfIssue}">
+    </div>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name" th:value="${sertificate.name}">
+    </div>
+    <div class="form-group">
+      <label for="serialNumber">Serial number</label>
+      <input type="text" class="form-control" id="serialNumber" name="serialNumber" th:value="${sertificate.serialNumber}">
+    </div>
+    <div class="form-group">
+      <label for="verificationCenter">Verification Center</label>
+      <input type="text" class="form-control" id="verificationCenter" name="verificationCenter" th:value="${sertificate.verificationCenter}">
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
+</div>
+<!-- Bootstrap JS (optional) -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

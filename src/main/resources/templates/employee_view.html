@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View employee</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h2>Employee details</h2>
+    <a href="/mvc/employees" class="btn btn-primary">Back to Employees</a>
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <td th:text="${employee.id}"></td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td th:text="${employee.name}"></td>
+        </tr>
+        <tr>
+            <th>Cabinet</th>
+            <td th:text="${employee.cabinet}"></td>
+        </tr>
+        <tr>
+            <th>Department</th>
+            <td th:text="${employee.department}"></td>
+        </tr>
+        <tr>
+            <th>Learning Campus</th>
+            <td th:text="${employee.learningCampus}"></td>
+        </tr>
+        <tr>
+            <th>Post</th>
+            <td th:text="${employee.post}"></td>
+        </tr>
+    </table>
+</div>
+
+<!-- Include Bootstrap JS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View Entry EP</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .table-container {
+            display: inline-block;
+            margin-right: 20px; /* Добавьте необходимый отступ между таблицами */
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Entry EP Details</h2>
+    <a href="/mvc/entryeps" class="btn btn-primary">Back to Entry EP List</a>
+    <table class="table mt-3">
+        <tr>
+            <th>ID</th>
+            <td th:text="${entryep.id}"></td>
+        </tr>
+        <tr>
+            <th>Type</th>
+            <td th:text="${entryep.type}"></td>
+        </tr>
+        <tr>
+            <th>Date of Issue EP</th>
+            <td th:text="${entryep.dateOfIssueEp}"></td>
+        </tr>
+        <tr>
+            <th>Date of Receiving</th>
+            <td th:text="${entryep.dateOfReceiving}"></td>
+        </tr>
+        <tr>
+            <th>Date of Installation ECP</th>
+            <td th:text="${entryep.dateOfInstallationEcp}"></td>
+        </tr>
+        <tr>
+            <th>Name of Employee IB</th>
+            <td th:text="${entryep.nameOfEmployeeIb}"></td>
+        </tr>
+        <tr>
+            <th>Learning Campus</th>
+            <td th:text="${entryep.learningCampus}"></td>
+        </tr>
+        <tr>
+            <th>Cabinet</th>
+            <td th:text="${entryep.cabinet}"></td>
+        </tr>
+    </table>
+
+    <div class="table-container">
+        <h2>Employees</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="employee : ${entryep.employees}">
+                <td th:text="${employee.id}"></td>
+                <td th:text="${employee.name}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table-container">
+        <h2>Certificates</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Serial Number</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="certificate : ${entryep.sertificates}">
+                <td th:text="${certificate.id}"></td>
+                <td th:text="${certificate.name}"></td>
+                <td th:text="${certificate.serialNumber}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table-container">
+        <h2>Computers</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Marking</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="computer : ${entryep.computers}">
+                <td th:text="${computer.id}"></td>
+                <td th:text="${computer.marking}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table-container">
+        <h2>Carriers</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Serial Number</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="carrier : ${entryep.carriers}">
+                <td th:text="${carrier.id}"></td>
+                <td th:text="${carrier.serialNumber}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
