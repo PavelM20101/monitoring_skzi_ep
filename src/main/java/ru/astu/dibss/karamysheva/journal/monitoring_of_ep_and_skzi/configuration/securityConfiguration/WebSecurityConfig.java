@@ -28,27 +28,11 @@ public class WebSecurityConfig {
     }
 
     @Bean
-//    public UserDetailsService userDetailsService(BCryptPasswordEncoder bCryptPasswordEncoder) {
-//        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-//        manager.createUser(User.withUsername("user")
-//                .password(bCryptPasswordEncoder.encode("userPass"))
-//                .roles("USER")
-//                .build());
-//        manager.createUser(User.withUsername("admin")
-//                .password(bCryptPasswordEncoder.encode("adminPass"))
-//                .roles("USER", "ADMIN")
-//                .build());
-//        return manager;
-//    }
     @Qualifier("userServiceImpl")
     public UserDetailsService userDetailsService() {
         return new UserServiceImpl();
     }
 
-    //    @Bean
-//    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
-//        return authenticationConfiguration.getAuthenticationManager();
-//    }
     @Bean
     protected DaoAuthenticationProvider daoAuthenticationProvider() {
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
@@ -72,16 +56,6 @@ public class WebSecurityConfig {
                     formLogin.permitAll();
                 })
                 .logout(logout -> logout.permitAll());
-        //        http
-//                .authorizeHttpRequests(authorizationManagerRequestMatcherRegistry ->
-//                        authorizationManagerRequestMatcherRegistry.requestMatchers(HttpMethod.DELETE).hasRole("ADMIN")
-//                                .requestMatchers("/admin/**").hasAnyRole("ADMIN")
-//                                .requestMatchers("/user/**").hasAnyRole("USER", "ADMIN")
-//                                .requestMatchers("/login/**").permitAll()
-//                                .anyRequest().authenticated())
-//                .httpBasic(Customizer.withDefaults())
-//                .sessionManagement(httpSecuritySessionManagementConfigurer -> httpSecuritySessionManagementConfigurer.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
-
         return http.build();
     }
 

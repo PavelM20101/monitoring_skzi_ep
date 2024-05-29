@@ -56,21 +56,15 @@ public class CarrierMVCController {
     @PostMapping("/carrier/edit")
     public String editCarrier(@Valid @ModelAttribute CarrierDTO carrierDTO,
                               @RequestParam(name = "employeeIds", required = false) List<Integer> employeeIds) {
-        // Получаем текущий перевозчик из базы данных
         CarrierDTO existingCarrier = carrierService.findById(carrierDTO.getId());
-
-        // Если идентификаторы сотрудников не переданы, используем текущих сотрудников перевозчика
         if (employeeIds == null) {
             carrierDTO.setEmployees(existingCarrier.getEmployees());
         } else {
-            // Иначе, получаем новых сотрудников из переданных идентификаторов
             List<EmployeeDTO> employees = employeeIds.stream()
                     .map(employeeService::findById)
                     .collect(Collectors.toList());
             carrierDTO.setEmployees(employees);
         }
-
-        // Сохраняем обновленные данные перевозчика
         carrierService.save(carrierDTO);
 
         return "redirect:/mvc/carriers";
@@ -120,28 +114,5 @@ public class CarrierMVCController {
         model.addAttribute("carriers", carriers);
         return "carriers";
     }
-
-//    @GetMapping("/carriers/searchEmployees")
-//    public String searchEmployees(@RequestParam String parameter, @RequestParam String value, Model model) {
-//        List<EmployeeDTO> employees;
-//        switch (parameter) {
-//            case "department":
-//                employees = employeeService.findEmployeeByDepartmentContainsIgnoreCase(value);
-//                break;
-//            case "campus":
-//                employees = employeeService.findEmployeeByLearningCampusContainsIgnoreCase(value);
-//                break;
-//            case "name":
-//                employees = employeeService.findEmployeeByNameContainingIgnoreCase(value);
-//                break;
-//            case "post":
-//                employees = employeeService.findEmployeeByPostContainingIgnoreCase(value);
-//                break;
-//            default:
-//                employees = new ArrayList<>();
-//        }
-//        model.addAttribute("employees", employees);
-//        return "carrier_result_search_employees";
-//    }
 }
 

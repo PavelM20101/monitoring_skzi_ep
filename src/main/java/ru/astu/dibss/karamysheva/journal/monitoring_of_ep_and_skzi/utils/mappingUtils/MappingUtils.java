@@ -23,16 +23,13 @@ public class MappingUtils {
         dto.setType(entity.getType());
         dto.setMarkirovka(entity.getMarkirovka());
         dto.setSerialNumber(entity.getSerialNumber());
-
-        // Проверка на null перед вызовом метода stream()
         if (entity.getEmployees() != null) {
             dto.setEmployees(entity.getEmployees().stream()
                     .map(MappingUtils::mapEmployeeToDto)
                     .collect(Collectors.toList()));
         } else {
-            dto.setEmployees(new ArrayList<>()); // Инициализация пустого списка, если список сотрудников равен null
+            dto.setEmployees(new ArrayList<>());
         }
-
         return dto;
     }
 
@@ -42,16 +39,13 @@ public class MappingUtils {
         entity.setType(dto.getType());
         entity.setMarkirovka(dto.getMarkirovka());
         entity.setSerialNumber(dto.getSerialNumber());
-
-        // Проверка на null перед вызовом метода stream()
         if (dto.getEmployees() != null) {
             entity.setEmployees(dto.getEmployees().stream()
                     .map(MappingUtils::mapDtoToEmployee)
                     .collect(Collectors.toList()));
         } else {
-            entity.setEmployees(new ArrayList<>()); // Инициализация пустого списка, если список сотрудников равен null
+            entity.setEmployees(new ArrayList<>());
         }
-
         return entity;
     }
 

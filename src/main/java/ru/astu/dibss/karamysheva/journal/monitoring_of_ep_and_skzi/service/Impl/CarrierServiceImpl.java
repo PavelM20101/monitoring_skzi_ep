@@ -82,17 +82,5 @@ public class CarrierServiceImpl implements CarrierService {
         carrierIterable.forEach(carriers::add);
         return carriers;
     }
-//    @Override
-//    @Transactional
-//    public void saveWithEmployeeIds(CarrierDTO dto, List<Integer> employeeIds) {
-//        Carrier entity = MappingUtils.mapDtoToCarrier(dto);
-//        if (employeeIds != null) {
-//            List<Employee> employees = StreamSupport.stream(employeeRepository.findAllById(employeeIds).spliterator(), false)
-//                    .collect(Collectors.toList());
-//            entity.setEmployees(employees);
-//        }
-//        carrierRepository.save(entity);
-//    }
-
 
 }

@@ -24,12 +24,10 @@ public class SertificateDTO {
     private boolean expirySoon;
     public boolean isExpiringSoon() {
         if (dateOfExpiry == null) {
-            return false; // или выбрать другое поведение в случае, если дата истечения не установлена
+            return false;
         }
-
         LocalDateTime now = LocalDateTime.now();
-        LocalDateTime expiryThreshold = now.plusDays(45); // 45 days from now
-
+        LocalDateTime expiryThreshold = now.plusDays(45);
         return expiryThreshold.isAfter(dateOfExpiry);
     }
 }

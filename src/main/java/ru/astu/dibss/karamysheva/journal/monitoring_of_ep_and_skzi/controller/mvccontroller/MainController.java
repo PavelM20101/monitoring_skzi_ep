@@ -20,13 +20,8 @@ public class MainController {
 
     @GetMapping("/main")
     public String showMainPage(Model model) {
-        // Получение списка скоро истекающих сертификатов
         List<SertificateDTO> expiringSoonSertificates = sertificateService.findSertificatesExpiringSoon(); // Предполагается, что у вас есть метод для этого
-
-        // Добавление списка в модель для передачи в шаблон
         model.addAttribute("expiringSoonSertificates", expiringSoonSertificates);
-
-        // Возвращаем имя шаблона
         return "main";
     }
 
@@ -37,7 +32,6 @@ public class MainController {
 
     @GetMapping("/")
     public String home() {
-
         return "redirect:/login";
     }
 }

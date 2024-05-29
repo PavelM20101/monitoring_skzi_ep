@@ -1,12 +1,9 @@
 package ru.astu.dibss.karamysheva.journal.monitoring_of_ep_and_skzi.service.Impl;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.astu.dibss.karamysheva.journal.monitoring_of_ep_and_skzi.dto.ComputerDTO;
 import ru.astu.dibss.karamysheva.journal.monitoring_of_ep_and_skzi.dto.EmployeeDTO;
-import ru.astu.dibss.karamysheva.journal.monitoring_of_ep_and_skzi.entities.Computer;
 import ru.astu.dibss.karamysheva.journal.monitoring_of_ep_and_skzi.entities.Employee;
 import ru.astu.dibss.karamysheva.journal.monitoring_of_ep_and_skzi.repository.EmployeeRepository;
 import ru.astu.dibss.karamysheva.journal.monitoring_of_ep_and_skzi.service.EmployeeService;
