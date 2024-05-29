@@ -1,5 +1,6 @@
 package ru.astu.dibss.karamysheva.journal.monitoring_of_ep_and_skzi.controller.mvccontroller;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -53,7 +54,7 @@ public class CarrierMVCController {
     }
 
     @PostMapping("/carrier/edit")
-    public String editCarrier(@ModelAttribute CarrierDTO carrierDTO,
+    public String editCarrier(@Valid @ModelAttribute CarrierDTO carrierDTO,
                               @RequestParam(name = "employeeIds", required = false) List<Integer> employeeIds) {
         // Получаем текущий перевозчик из базы данных
         CarrierDTO existingCarrier = carrierService.findById(carrierDTO.getId());
@@ -84,7 +85,7 @@ public class CarrierMVCController {
     }
 
     @PostMapping("/carrier/add")
-    public String addCarrier(@ModelAttribute CarrierDTO carrierDTO,
+    public String addCarrier(@Valid @ModelAttribute CarrierDTO carrierDTO,
                              @RequestParam(name = "employeeIds", required = false) List<Integer> employeeIds) {
         if (employeeIds != null) {
             List<Employee> employees = employeeService.findEmployeesByIds(employeeIds);

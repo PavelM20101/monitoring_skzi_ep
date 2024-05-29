@@ -1,5 +1,6 @@
 package ru.astu.dibss.karamysheva.journal.monitoring_of_ep_and_skzi.controller.mvccontroller;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
@@ -45,7 +46,7 @@ public class EmployeeMVCController {
         return "employee_edit";
     }
     @PostMapping("/employee/edit")
-    public String editEmployee(@ModelAttribute EmployeeDTO employeeDTO){
+    public String editEmployee(@Valid @ModelAttribute EmployeeDTO employeeDTO){
         employeeService.save(employeeDTO);
         return "redirect:/mvc/employees";
     }
@@ -55,7 +56,7 @@ public class EmployeeMVCController {
         return "employee_add";
     }
     @PostMapping("/employee/add")
-    public String addEmployee(@ModelAttribute EmployeeDTO employeeDTO){
+    public String addEmployee(@Valid @ModelAttribute EmployeeDTO employeeDTO){
         employeeService.save(employeeDTO);
         return "redirect:/mvc/employees";
     }

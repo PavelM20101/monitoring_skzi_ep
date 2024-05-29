@@ -1,5 +1,6 @@
 package ru.astu.dibss.karamysheva.journal.monitoring_of_ep_and_skzi.controller.mvccontroller;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.relational.core.sql.In;
 import org.springframework.stereotype.Controller;
@@ -44,7 +45,7 @@ public class ComputerMVCController {
         return "computer_edit";
     }
     @PostMapping("/computer/edit")
-    public String editComputer(@ModelAttribute ComputerDTO computerDTO){
+    public String editComputer(@Valid @ModelAttribute ComputerDTO computerDTO){
         computerService.save(computerDTO);
         return "redirect:/mvc/computers";
     }
@@ -54,7 +55,7 @@ public class ComputerMVCController {
         return "computer_add";
     }
     @PostMapping("/computer/add")
-    public String addComputer(@ModelAttribute ComputerDTO computerDTO){
+    public String addComputer(@Valid @ModelAttribute ComputerDTO computerDTO){
         computerService.save(computerDTO);
         return "redirect:/mvc/computers";
     }

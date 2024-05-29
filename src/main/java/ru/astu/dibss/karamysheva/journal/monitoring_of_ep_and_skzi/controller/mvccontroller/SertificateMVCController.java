@@ -1,5 +1,6 @@
 package ru.astu.dibss.karamysheva.journal.monitoring_of_ep_and_skzi.controller.mvccontroller;
 
+import jakarta.validation.Valid;
 import net.sf.jsqlparser.expression.operators.relational.MinorThanEquals;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -48,7 +49,7 @@ public class SertificateMVCController {
         return "sertificate_edit";
     }
     @PostMapping("/sertificate/edit")
-    public String editSertificate(@ModelAttribute SertificateDTO sertificateDTO){
+    public String editSertificate(@Valid @ModelAttribute SertificateDTO sertificateDTO){
         sertificateService.save(sertificateDTO);
         return "redirect:/mvc/sertificates";
     }
@@ -58,7 +59,7 @@ public class SertificateMVCController {
         return "sertificate_add";
     }
     @PostMapping("/sertificate/add")
-    public String addSertificate(@ModelAttribute SertificateDTO sertificateDTO){
+    public String addSertificate(@Valid @ModelAttribute SertificateDTO sertificateDTO){
         sertificateService.save(sertificateDTO);
         return "redirect:/mvc/sertificates";
     }

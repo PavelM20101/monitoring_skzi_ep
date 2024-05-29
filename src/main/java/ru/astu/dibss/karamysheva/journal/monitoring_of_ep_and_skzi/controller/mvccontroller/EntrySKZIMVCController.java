@@ -1,5 +1,6 @@
 package ru.astu.dibss.karamysheva.journal.monitoring_of_ep_and_skzi.controller.mvccontroller;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -52,7 +53,7 @@ public class EntrySKZIMVCController {
         return "entry-skzi_edit";
     }
     @PostMapping("/entryskzi/edit")
-    public String editEntrySKZI(@ModelAttribute EntrySKZIDTO entrySKZIDTO,
+    public String editEntrySKZI(@Valid @ModelAttribute EntrySKZIDTO entrySKZIDTO,
                                 @RequestParam(name = "carrierIds", required = false) List<Integer> carrierIds){
         EntrySKZIDTO existingEntrySKZI = entrySKZIService.findById(entrySKZIDTO.getId());
 
@@ -74,7 +75,7 @@ public class EntrySKZIMVCController {
         return "entry-skzi_add";
     }
     @PostMapping("/entryskzi/add")
-    public String addEntrySKZI(@ModelAttribute EntrySKZIDTO entrySKZIDTO,
+    public String addEntrySKZI(@Valid @ModelAttribute EntrySKZIDTO entrySKZIDTO,
                                @RequestParam(name = "carrierIds", required = false) List<Integer> carrierIds){
         if (carrierIds != null){
             List<Carrier> carriers = carrierService.findCarriersByIds(carrierIds);

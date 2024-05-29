@@ -1,5 +1,6 @@
 package ru.astu.dibss.karamysheva.journal.monitoring_of_ep_and_skzi.controller.mvccontroller;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -59,7 +60,6 @@ public class EntryEPMVCController {
     @GetMapping("/entryep/view/{id}")
     public String viewEntryEP(@PathVariable Integer id, Model model){
         EntryEPDTO entryEPDTO = entryEPService.findById(id);
-        System.out.println("Certificates: " + entryEPDTO.getSertificates());
         model.addAttribute("entryep", entryEPDTO);
         return "entry-ep_view";
     }
@@ -74,7 +74,7 @@ public class EntryEPMVCController {
         return "entry-ep_edit";
     }
     @PostMapping("/entryep/edit")
-    public String editEntryEP(@ModelAttribute EntryEPDTO entryEPDTO,
+    public String editEntryEP(@Valid @ModelAttribute EntryEPDTO entryEPDTO,
                               @RequestParam(name = "carrierIds", required = false) List<Integer> carrierIds,
                               @RequestParam(name = "employeeIds", required = false) List<Integer> employeeIds,
                               @RequestParam(name = "computerIds", required = false) List<Integer> computerIds,
@@ -130,7 +130,7 @@ public class EntryEPMVCController {
         return "entry-ep_add";
     }
     @PostMapping("/entryep/add")
-    public String addEntryEP(@ModelAttribute EntryEPDTO entryEPDTO,
+    public String addEntryEP(@Valid @ModelAttribute EntryEPDTO entryEPDTO,
                              @RequestParam(name = "carrierIds", required = false) List<Integer> carrierIds,
                              @RequestParam(name = "employeeIds", required = false) List<Integer> employeeIds,
                              @RequestParam(name = "computerIds", required = false) List<Integer> computerIds,
