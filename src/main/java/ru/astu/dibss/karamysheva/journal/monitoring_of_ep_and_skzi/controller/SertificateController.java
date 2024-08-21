@@ -3,6 +3,7 @@ package ru.astu.dibss.karamysheva.journal.monitoring_of_ep_and_skzi.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/sertificate")
+@Validated
 public class SertificateController {
     private SertificateService sertificateService;
 
